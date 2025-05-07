@@ -10,6 +10,7 @@ function HeroSection() {
   const lottieRef = useRef(null);
   const navigate = useNavigate();
   const [isExiting, setIsExiting] = useState(false);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,12 +22,33 @@ function HeroSection() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Scroll listener to show the "scroll to top" button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollToTop(true);
+      } else {
+        setShowScrollToTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const handleGetStartedClick = (e) => {
     e.preventDefault();
     setIsExiting(true);
     setTimeout(() => {
       navigate("/model");
     }, 500); // match animation duration
+  };
+
+  // Function to scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -79,6 +101,16 @@ function HeroSection() {
           </div>
         </div>
       </motion.section>
+
+      {/* Scroll to top button */}
+      {showScrollToTop && (
+        <button 
+          className="scroll-to-top" 
+          onClick={scrollToTop}
+        >
+          ↑ Back to Top
+        </button>
+      )}
     </ClickSpark>
   );
 }

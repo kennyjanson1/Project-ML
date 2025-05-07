@@ -132,7 +132,6 @@
   border-radius: 30px;
 }
 
-
 .feature-right {
   display: flex;
   flex-direction: column;
@@ -153,10 +152,43 @@
   border: none;
 }
 
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Initially disabled */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(20px);
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background-color: #0056b3;
+}
+
+.scroll-to-top:focus {
+  outline: none;
+}
+
 @keyframes rotate {
   100% {
     transform: rotate(1turn);
   }
 }
-
-
