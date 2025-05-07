@@ -1,0 +1,142 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  max-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  background-color: black;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain; /* Menjaga rasio logo */
+  border-radius: 50%; /* Opsional, kalau ingin bentuk bulat */
+  background: transparent;
+}
+
+
+.navbar-name {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.navbar-menu-icon {
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background-color: black;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px #00e5ff;
+  list-style: none;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  transform-origin: top right;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 999;
+  min-width: 190px; /* Tambahan agar dropdown lebih lebar */
+}
+
+
+.navbar-dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1.08); /* Zoom lebih besar */
+  pointer-events: auto;
+}
+
+.navbar-dropdown li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.3rem;
+  position: relative;
+  transition: color 0.3s ease;
+  display: inline-block; /* penting agar garis tidak meluber */
+  padding-bottom: 2px;
+}
+
+.navbar-dropdown li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #00b7ff, #0096ff);
+  transition: width 0.3s;
+}
+
+.navbar-dropdown li a:hover::after {
+  width: 100%;
+}
+
+.dropdown-divider {
+  height: 1px;
+  margin: 8px 0;
+  background-color: white;
+  opacity: 2;
+}
+
+.btn-login {
+  background: white;
+  width: 100%;
+  border: 2px solid black;
+  color: black;
+  padding: 0.5rem 1.2rem;
+  border-radius: 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+.btn-login:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

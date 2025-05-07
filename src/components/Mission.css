@@ -1,0 +1,82 @@
+.mission {
+  padding: 4rem 6%;
+  font-family: 'General Sans', sans-serif;
+}
+
+.mission-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.mission-tag {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: white;
+  border: 2px solid black;
+  padding: 0.2rem 0.9rem;
+  display: inline-block;
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+  font-family: 'General Sans', sans-serif;
+}
+
+.mission-title {
+  font-family: 'General Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.mission-desc {
+  font-family: 'General Sans', sans-serif;
+  font-weight: 400;
+  color: #555;
+}
+
+.mission-card {
+  display:flex;
+  align-items: center;
+  gap: 2rem;
+  background: #f5f5f5;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.mission-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.mission-card img {
+  width: 470px;
+  border-radius: 1rem;
+}
+
+.mission-info h4 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.mission-info p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.7s ease-out;
+}
+
+.reveal.left {
+  transform: translateX(-50px);
+}
+
+.reveal.right {
+  transform: translateX(50px);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
